@@ -1,4 +1,7 @@
-# Cobo.api
+[![forthebadge](https://forthebadge.com/images/badges/gluten-free.svg)](https://forthebadge.com)
+
+![Logo](/temp/cobo-api-logo.png)
+
 
 **Co**mplete **Bo**ilerplate for building simple Node.js API server
 

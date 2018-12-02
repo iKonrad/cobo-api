@@ -52,5 +52,3 @@ messages/*
 # Settings file
 settings/index.js
 settings/database.js
-
-ecosystem.config.js
