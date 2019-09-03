@@ -33,9 +33,13 @@ const serverConfig = {
   // Tell webpack to run babel on every file it runs through
   module: {
     rules: [
-      { test: /\.tsx?$/, use: [{ loader: 'awesome-typescript-loader' }] },
       {
-        test: /\.js?$/,
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: [{ loader: 'awesome-typescript-loader' }],
+      },
+      {
+        test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
