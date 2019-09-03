@@ -13,11 +13,16 @@ const serverConfig = {
     __filename: false,
   },
 
+  resolve: {
+    alias: PATHS,
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+  },
+
   // Tell webpack if we're on development or production environment
   mode: 'development',
 
   // Tell webpack the root file of our server application
-  entry: './src/index.js',
+  entry: './src/index.ts',
 
   // Tell webpack where to put the output file that is generated
   output: {
@@ -28,6 +33,7 @@ const serverConfig = {
   // Tell webpack to run babel on every file it runs through
   module: {
     rules: [
+      { test: /\.tsx?$/, use: [{ loader: 'awesome-typescript-loader' }] },
       {
         test: /\.js?$/,
         loader: 'babel-loader',
@@ -64,10 +70,6 @@ const serverConfig = {
       },
     }),
   ],
-
-  resolve: {
-    alias: PATHS,
-  },
 
   externals: [
     webpackNodeExternals(),
