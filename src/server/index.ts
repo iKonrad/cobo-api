@@ -13,6 +13,7 @@ import Router from 'koa-router';
 import locale from 'koa-locale';
 import i18n from 'koa-i18n';
 import errorMiddleware from 'server/middlewares/error';
+import { Method } from 'types';
 import initModules from './init';
 
 
@@ -55,19 +56,19 @@ models.sequelize.sync().then(async () => {
 
   controllers.forEach(({ path, handler, method }) => {
     switch (method) {
-      case settings.METHODS.GET: {
+      case Method.GET: {
         router.get(path, handler);
         break;
       }
-      case settings.METHODS.POST: {
+      case Method.POST: {
         router.post(path, handler);
         break;
       }
-      case settings.METHODS.DELETE: {
+      case Method.DELETE: {
         router.del(path, handler);
         break;
       }
-      case settings.METHODS.PATCH: {
+      case Method.PATCH: {
         router.patch(path, handler);
         break;
       }

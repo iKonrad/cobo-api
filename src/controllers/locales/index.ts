@@ -1,12 +1,12 @@
 // NPM modules
-import settings from 'settings';
+import { ControllerType, Method } from 'types';
 
 // Handlers
 import locales from './handlers/locales';
 
-const localesRoute = {
+const localesRoute: ControllerType = {
   path: '/locales',
-  method: settings.METHODS.GET,
+  method: Method.GET,
   handler: locales,
 };
 

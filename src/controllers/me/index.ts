@@ -1,11 +1,11 @@
-import settings from 'settings';
 import compose from 'koa-compose';
 import { onlyAuthenticated } from 'server/middlewares/users';
+import { Method, ControllerType } from 'types';
 import me from './handlers/me';
 
-const homeRoute = {
+const homeRoute: ControllerType = {
   path: '/me',
-  method: settings.METHODS.GET,
+  method: Method.GET,
   handler: compose([onlyAuthenticated, me]),
 };
 

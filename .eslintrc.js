@@ -4,12 +4,16 @@ const [_, ...restricted] = baseRules.rules['no-restricted-syntax'];
 const PATHS = require('./settings/paths');
 
 module.exports = {
-  extends: 'airbnb',
-  parser: 'babel-eslint',
+  extends: [
+    'airbnb',
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2017,
+    ecmaVersion: 2018,
     sourceType: 'module',
-    jsx: true,
   },
   env: {
     node: true,
@@ -19,6 +23,9 @@ module.exports = {
   plugins: [
     'babel',
     'import',
+    'typescript',
+    '@typescript-eslint',
+    'compat',
     'jsx-a11y',
     'jest',
   ],
@@ -44,7 +51,7 @@ module.exports = {
     'consistent-return': 0,
     'no-underscore-dangle': 0,
     'import/prefer-default-export': 0,
-    'react/jsx-closing-bracket-location': [1, 'after-props'],
+    'import/extensions': 0,
 
     // Import
     'import/no-unresolved': [2, { commonjs: true }],
@@ -63,13 +70,17 @@ module.exports = {
       node: {
         paths: [
           PATHS.src,
+          PATHS.settings,
           PATHS.root,
           'node_modules',
         ],
+        extensions: [
+          ".js",
+          ".tsx",
+          ".ts",
+          ".jsx"
+        ]
       },
     },
-  },
-  globals: {
-    SERVER: false,
   },
 };

@@ -1,21 +1,23 @@
 {
   "compilerOptions": {
     "baseUrl": "./src",
-    "outDir": "./dist/",        // path to output directory
+    "outDir": "./build/",        // path to output directory
     "strictNullChecks": true,   // enable strict null checks as a best practice
-    "module": "esnext",            // specify module code generation
-    "target": "es6",            // specify ECMAScript target version
+    "module": "commonjs",            // specify module code generation
     "allowJs": true,
-    "lib": ["es5", "es6", "dom"],
+    "lib": ["es5", "es6"],
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "typeRoots": [
       "node_modules/@types"
     ],
     "paths": {
       "utils/*": [ "utils/*" ],
-      "settings": [ "settings/index.js" ]
+      "settings": [ "../settings/index.ts" ],
+      "settings/*": [ "../settings/*" ]
     }
   }
 }

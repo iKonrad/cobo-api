@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import settings from 'settings';
 import validate from 'validate.js';
 

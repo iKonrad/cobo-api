@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
 
 // ----------------------
@@ -15,6 +16,7 @@ module.exports = {
   controllers: path.join(root, 'src', 'controllers'),
   utils: path.join(root, 'src', 'utils'),
   validators: path.join(root, 'src', 'validators'),
+  types: path.join(root, 'src', 'types'),
   messages: path.join(root, 'messages'),
   temp: path.join(root, 'temp'),
 };

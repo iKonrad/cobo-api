@@ -1,5 +1,6 @@
 import settings from 'settings';
 import compose from 'koa-compose';
+import { Method, ControllerType } from 'types';
 import { onlyNotAuthenticated } from 'server/middlewares/users';
 import { validateJson } from 'server/middlewares/validate';
 
@@ -9,9 +10,9 @@ import { email, password, username } from 'validators';
 // Handlers
 import post from './handlers/post';
 
-const postRoute = {
+const postRoute: ControllerType = {
   path: '/users',
-  method: settings.METHODS.POST,
+  method: Method.POST,
   handler: compose(
     [
       onlyNotAuthenticated,
