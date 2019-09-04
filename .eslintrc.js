@@ -31,7 +31,7 @@ module.exports = {
   ],
   rules: {
     // General
-    'require-atomic-updates': false,
+    'require-atomic-updates': 0,
     '@typescript-eslint/no-explicit-any': 0,
     'arrow-parens': ['error', 'as-needed'],
     'function-paren-newline': ["error", "consistent"],
