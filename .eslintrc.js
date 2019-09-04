@@ -31,6 +31,7 @@ module.exports = {
   ],
   rules: {
     // General
+    '@typescript-eslint/no-explicit-any': 0,
     'arrow-parens': ['error', 'as-needed'],
     'function-paren-newline': ["error", "consistent"],
     'object-curly-newline': ["error", { consistent: true }],
