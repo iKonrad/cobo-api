@@ -1,5 +1,5 @@
 const baseRules = require('eslint-config-airbnb-base/rules/style');
-const [_, ...restricted] = baseRules.rules['no-restricted-syntax'];
+const [, ...restricted] = baseRules.rules['no-restricted-syntax'];
 
 const PATHS = require('./settings/paths');
 
@@ -31,6 +31,7 @@ module.exports = {
   ],
   rules: {
     // General
+    'require-atomic-updates': false,
     '@typescript-eslint/no-explicit-any': 0,
     'arrow-parens': ['error', 'as-needed'],
     'function-paren-newline': ["error", "consistent"],
