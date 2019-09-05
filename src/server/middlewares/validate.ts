@@ -1,7 +1,8 @@
 import settings from 'settings';
 import validate from 'validate.js';
+import { Context } from 'koa';
 
-export const validateJson = schema => async (ctx, next) => {
+export const validateJson = schema => async (ctx: Context, next) => {
   const data = ctx.request.body;
 
   const wrapErrors = errors => {
@@ -27,10 +28,11 @@ export const validateJson = schema => async (ctx, next) => {
     return errors;
   };
 
-  await validate.async(data, schema, {
-    fullMessages: false,
+  const options = {
     wrapErrors,
     ctx,
-  }).then(next);
+  };
+
+  await validate.async(data, schema, options as any).then(next);
 };
 

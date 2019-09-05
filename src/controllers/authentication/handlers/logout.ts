@@ -1,7 +1,8 @@
 import settings from 'settings';
 import models from 'models';
+import { Context } from 'koa';
 
-export default async ctx => {
+export default async (ctx: Context) => {
   const authHeader = ctx.headers.authorization;
   if (authHeader) {
     const [type, token] = ctx.headers.authorization.split(' ');

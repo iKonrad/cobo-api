@@ -1,6 +1,7 @@
 import settings from 'settings';
+import { Middleware } from 'koa';
 
-export default async (ctx, next) => {
+const Error: Middleware = async (ctx, next) => {
   try {
     await next();
   } catch (err) {
@@ -20,3 +21,4 @@ export default async (ctx, next) => {
     }
   }
 };
+export default Error;
