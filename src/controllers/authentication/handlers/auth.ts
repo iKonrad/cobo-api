@@ -6,7 +6,7 @@ import uuid from 'uuid/v4';
 
 // Global modules
 import models from 'models';
-import unauthorizedResponse from 'utils/responses/unauthorized';
+import e from 'http-errors';
 
 export default async ctx => {
   // Delete old session if exists
@@ -19,15 +19,14 @@ export default async ctx => {
 
   return passport.authenticate('json', { session: false }, async (err, user) => {
     if (err) {
-      ctx.status = settings.STATUSES.UNAUTHORIZED;
-      ctx.body = unauthorizedResponse;
+      throw new e.Unauthorized('error.unauthorized');
     }
 
     if (user) {
       // We are authenticated, we can now create a session and return it
       const session = await models.Session.build({
         id: uuid(),
-        userId: user.id,
+        user: user.id,
       }).save();
 
       if (session) {
@@ -47,6 +46,5 @@ export default async ctx => {
       };
       ctx.status = settings.STATUSES.UNAUTHORIZED;
     }
-  },
-  null)(ctx);
+  })(ctx, async () => {});
 };

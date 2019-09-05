@@ -81,7 +81,7 @@ export const UserFactory = (
     }
   });
 
-  User.prototype.toJSON = (): string => {
+  User.prototype.toJSON = function(): string {
     const values = Object.assign({}, this.get());
     delete values.password;
     return values;
