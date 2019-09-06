@@ -7,6 +7,7 @@
 
 ## Features
 
+- TypeScript (with Sequelize models)
 - Koa
 - Koa router
 - Static file serving
